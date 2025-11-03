@@ -1,4 +1,4 @@
-Strategy Design Pattern: Duck Simulator
+# Strategy Design Pattern: Duck Simulator
 
 This project implements the **Strategy Design Pattern** in Python to simulate various types of ducks with interchangeable behaviors. This architecture adheres to the **Open/Closed Principle (OCP)**, allowing new behaviors to be added without modifying the core duck classes.
 
