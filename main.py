@@ -1,4 +1,4 @@
-from ducks import MallardDuck, SanAntonioDuck, RubberDuck, DecoyDuck
+from ducks import Mallard, San_Antonio, Rubber, Decoy
 from behaviors import FlyWithWings, NoFly
 
 def run_simulation(duck):
@@ -9,15 +9,15 @@ def run_simulation(duck):
     duck.swim()
     
     # Check for the unique 'walk' method
-    if isinstance(duck, SanAntonioDuck):
+    if isinstance(duck, San_Antonio):
         duck.walk()
     print("-" * 30)
 
 if __name__ == "__main__":
-    mallard = MallardDuck()
-    san_antonio = SanAntonioDuck()
-    rubber = RubberDuck()
-    decoy = DecoyDuck()
+    mallard = Mallard()
+    san_antonio = San_Antonio()
+    rubber = Rubber()
+    decoy = Decoy()
 
     # Run the initial simulation
     print("--- Initial Duck Simulation ---")
@@ -25,13 +25,3 @@ if __name__ == "__main__":
     run_simulation(san_antonio)
     run_simulation(rubber)
     run_simulation(decoy)
-
-    # --- Demonstrate Strategy Pattern Power (Runtime Change) ---
-    print("--- DEMO: Dynamic Strategy Change ---")
-    print("San Antonio Duck's behavior is changed to NoFly at runtime.")
-    
-    # We can change the strategy object without touching the Duck's class!
-    san_antonio.fly_behavior = NoFly()
-    san_antonio.perform_fly() 
-    
-    print("-" * 30)

@@ -29,7 +29,7 @@ class LoudQuack(QuackBehavior):
 # QuackToBoat (for San Antonio Duck)
 class QuackToBoat(QuackBehavior):
     def quack(self, duck_name):
-        print(f"I am a {duck_name}, I can quack to boat?")
+        print(f"I am a {duck_name}, I can quack to boat")
 
 # SquickSound (for Rubber Duck)
 class SquickSound(QuackBehavior):

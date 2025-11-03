@@ -47,9 +47,7 @@ class Mallard(Duck):
     def display(self):
         print(f"--- Displaying a {self.__class__.__name__} ---")
 
-    # Mallard Duck can swim but can't walk
-    def walk(self):
-        pass
+    # Mallard Duck can swim AND can walk
 
 class Decoy(Duck):
     # SA Duck uses NoFLy and MuteQuack
@@ -60,6 +58,12 @@ class Decoy(Duck):
         print(f"--- Displaying a {self.__class__.__name__} ---")
 
     # Decoy Duck can't swim or walk
+    def swim(self):
+        print(f"I am a {self.__class__.__name__}, I cannot swim.")
+
+    def walk(self):
+        print(f"I am a {self.__class__.__name__}, I cannot walk")
+
 
 class Rubber(Duck):
     # Rubber Duck uses NoFLy and SquickSound
@@ -70,3 +74,8 @@ class Rubber(Duck):
         print(f"--- Displaying a {self.__class__.__name__} ---")
         
     # Rubber Duck can't swim or walk
+    def swim(self):
+        print(f"I am a {self.__class__.__name__}, I cannot swim.")
+
+    def walk(self):
+        print(f"I am a {self.__class__.__name__}, I cannot walk")
