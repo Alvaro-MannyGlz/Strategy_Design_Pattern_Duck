@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
-from behaviors import FlyBehavior, QuackBehavior
-
+from behaviors import (
+    FlyBehavior, QuackBehavior, FlyWithWings, NoFly, 
+    LoudQuack, QuackToBoat, SquickSound, MuteQuack
+)
 # Abstract Class
 class Duck(ABC):
     def __init__(self, fly_behavior: FlyBehavior, quack_behavior: QuackBehavior):
@@ -13,54 +15,58 @@ class Duck(ABC):
         pass
 
     def perform_fly(self):
-        self.fly_behavior.fly(self.class___.__name__)
+        self.fly_behavior.fly(self.__class__.__name__)
 
     def perform_quack(self):
-        self.quack_behavior.quack(self.class___.__name__)
+        self.quack_behavior.quack(self.__class__.__name__)
 
+    # Mallard and SA Ducks
     def swim(self):
         print(f"I am a {self.__class__.__name__}, I can paddle and swim.")
 
+    # SA Duck only
     def walk(self):
         print(f"I am a {self.__class__.__name__}, I can walk")
 
 # Subclasses
 class San_Antonio(Duck):
-    def speak(self):
-        pass
+    # SA Duck uses FlyWithWings and QuackToBoat
+    def __init__(self):
+        super().__init__(FlyWithWings(),QuackToBoat())
 
-    def swim(self):
-        pass
+    def display(self):
+        print(f"--- Displaying a {self.__class__.__name__} ---")
 
-    def fly(self):
-        pass
+    # SA Duck can swim and walk
 
 class Mallard(Duck):
-    def speak(self):
-        pass
+    # Mallard Duck uses FlyWithWings and LoudQuack
+    def __init__(self):
+        super().__init__(FlyWithWings(),LoudQuack())
 
-    def swim(self):
-        pass
+    def display(self):
+        print(f"--- Displaying a {self.__class__.__name__} ---")
 
-    def fly(self):
+    # Mallard Duck can swim but can't walk
+    def walk(self):
         pass
 
 class Decoy(Duck):
-    def speak(self):
-        pass
+    # SA Duck uses NoFLy and MuteQuack
+    def __init__(self):
+        super().__init__(NoFly(),MuteQuack())
 
-    def swim(self):
-        pass
+    def display(self):
+        print(f"--- Displaying a {self.__class__.__name__} ---")
 
-    def fly(self):
-        pass
+    # Decoy Duck can't swim or walk
 
 class Rubber(Duck):
-    def speak(self):
-        pass
+    # Rubber Duck uses NoFLy and SquickSound
+    def __init__(self):
+        super().__init__(NoFly(),SquickSound())
 
-    def swim(self):
-        pass
-
-    def fly(self):
-        pass
+    def display(self):
+        print(f"--- Displaying a {self.__class__.__name__} ---")
+        
+    # Rubber Duck can't swim or walk
